@@ -1,13 +1,16 @@
 package com.coding.dojo.tdd.fizzbuzz;
 
-public class FizzRule extends Rule {
+public class FizzRule implements Rule {
 
     public final static String WORD = "Fizz";
 
     @Override
-    String apply(int num) {
-        return num % 3 == 0 ? WORD : "";
+    public String apply(int num) {
+        return isModThreeEqualZero(num) ? WORD : "";
     }
 
+    boolean isModThreeEqualZero(int num) {
+        return num % 3 == 0;
+    }
 
 }

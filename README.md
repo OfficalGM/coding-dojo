@@ -1,2 +1,4 @@
 # coding-dojo
-https://codingdojo.org/CodingDojos/
+- http://codekata.com/
+- http://www.codingdojo.org/KataCatalogue/
+

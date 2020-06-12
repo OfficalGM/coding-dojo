@@ -9,7 +9,6 @@ public class FizzBuzz {
 
     private final List<Rule> ruleList;
 
-
     public FizzBuzz(List<Rule> ruleList) {
         this.ruleList = ruleList;
     }
@@ -21,6 +20,5 @@ public class FizzBuzz {
         }
         return result.length() > 0 ? result.toString() : "" + num;
     }
-
 
 }
