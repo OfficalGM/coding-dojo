@@ -1,15 +1,26 @@
-package com.coding.dojo.tdd;
+package com.coding.dojo.tdd.fizzbuzz;
 
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 public class FizzBuzzTest {
 
+    FizzBuzz fizzBuzz;
+
+    @BeforeEach
+    public void before() {
+        FizzRule fizzRule = new FizzRule();
+        BuzzRule buzzRule = new BuzzRule();
+        fizzBuzz = new FizzBuzz(List.of(fizzRule, buzzRule));
+    }
+
     @Test
     public void test_speak_not_equal_3() {
-        final FizzBuzz fizzBuzz = new FizzBuzz();
 
         int num = 1;
 
@@ -21,7 +32,6 @@ public class FizzBuzzTest {
 
     @Test
     public void test_speak_Fizz() {
-        final FizzBuzz fizzBuzz = new FizzBuzz();
 
         int num = 3;
 
@@ -33,7 +43,6 @@ public class FizzBuzzTest {
 
     @Test
     public void test_speak_Buzz() {
-        final FizzBuzz fizzBuzz = new FizzBuzz();
 
         int num = 5;
 
@@ -44,7 +53,6 @@ public class FizzBuzzTest {
 
     @Test
     public void test_speak_FizzBuzz() {
-        final FizzBuzz fizzBuzz = new FizzBuzz();
 
         int num = 15;
 
@@ -52,6 +60,5 @@ public class FizzBuzzTest {
 
         assertThat(result).isEqualTo("FizzBuzz");
     }
-
 
 }
