@@ -15,14 +15,11 @@ public class FizzBuzz {
     }
 
     public String speak(int num) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (Rule rule : ruleList) {
-            if (rule.check(num)) {
-                stringBuilder.append(rule.getWord());
-            }
+        StringBuilder result = new StringBuilder();
+        for (Rule r : ruleList) {
+            result.append(r.apply(num));
         }
-        final String result = stringBuilder.toString();
-        return result.length() > 0 ? result: "" + num;
+        return result.length() > 0 ? result.toString() : "" + num;
     }
 
 

@@ -2,13 +2,12 @@ package com.coding.dojo.tdd.fizzbuzz;
 
 public class FizzRule extends Rule {
 
-    @Override
-    String getWord() {
-        return "Fizz";
-    }
+    public final static String WORD = "Fizz";
 
     @Override
-    public boolean check(int num) {
-        return num % 3 == 0;
+    String apply(int num) {
+        return num % 3 == 0 ? WORD : "";
     }
+
+
 }

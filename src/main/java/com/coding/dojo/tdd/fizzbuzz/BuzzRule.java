@@ -2,14 +2,10 @@ package com.coding.dojo.tdd.fizzbuzz;
 
 public class BuzzRule extends Rule {
 
-    @Override
-    String getWord() {
-        return "Buzz";
-    }
+    public final static String WORD = "Buzz";
 
     @Override
-    public boolean check(int num) {
-        return num % 5 == 0;
+    String apply(int num) {
+        return num % 5 == 0 ? WORD : "";
     }
-
 }

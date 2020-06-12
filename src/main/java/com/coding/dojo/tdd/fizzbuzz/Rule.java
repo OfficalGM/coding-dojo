@@ -2,7 +2,6 @@ package com.coding.dojo.tdd.fizzbuzz;
 
 public abstract class Rule {
 
-    abstract String getWord();
+    abstract String apply(int num);
 
-    abstract boolean check(int num);
 }
