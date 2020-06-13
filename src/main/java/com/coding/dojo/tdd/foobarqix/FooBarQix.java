@@ -2,24 +2,21 @@ package com.coding.dojo.tdd.foobarqix;
 
 //https://codingdojo.org/kata/FooBarQix/
 
+import java.util.List;
+import java.util.function.Function;
+
 public class FooBarQix {
 
+    private final List<Rule> ruleList;
 
-    public FooBarQix() {
-
+    public FooBarQix(List<Rule> ruleList) {
+        this.ruleList = ruleList;
     }
 
     String compute(String s) {
         final StringBuilder stringBuilder = new StringBuilder();
-
-        if (Integer.parseInt(s) % 3 == 0) {
-            stringBuilder.append("Foo");
-        }
-        if (Integer.parseInt(s) % 5 == 0) {
-            stringBuilder.append("Bar");
-        }
-        if (Integer.parseInt(s) % 7 == 0) {
-            stringBuilder.append("Qix");
+        for (Rule r : ruleList) {
+            stringBuilder.append(r.apply(s));
         }
         if (s.contains("7")) {
             stringBuilder.append("Qix");
@@ -30,7 +27,6 @@ public class FooBarQix {
         if (s.contains("3")) {
             stringBuilder.append("Foo");
         }
-
 
         return stringBuilder.toString().length() > 0 ? stringBuilder.toString() : s;
     }

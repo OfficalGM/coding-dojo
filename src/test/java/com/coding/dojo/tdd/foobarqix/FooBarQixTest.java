@@ -3,6 +3,8 @@ package com.coding.dojo.tdd.foobarqix;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class FooBarQixTest {
@@ -11,7 +13,10 @@ class FooBarQixTest {
 
     @BeforeEach
     public void init() {
-        fooBarQix = new FooBarQix();
+        Rule fooRule = new FooRule();
+        Rule barRule = new BarRule();
+        Rule qixRule = new QixRule();
+        fooBarQix = new FooBarQix(List.of(fooRule, barRule, qixRule));
     }
 
 
@@ -101,16 +106,5 @@ class FooBarQixTest {
         assertThat(result).isEqualTo("BarFoo");
 
     }
-
-//    @Test
-//    public void test_compute_33() {
-//
-//        String s = "33";
-//
-//        String result = fooBarQix.compute(s);
-//
-//        assertThat(result).isEqualTo("FooFooFoo");
-//
-//    }
 
 }
