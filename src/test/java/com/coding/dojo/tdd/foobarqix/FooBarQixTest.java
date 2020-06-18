@@ -16,7 +16,11 @@ class FooBarQixTest {
         Rule fooRule = new FooRule();
         Rule barRule = new BarRule();
         Rule qixRule = new QixRule();
-        fooBarQix = new FooBarQix(List.of(fooRule, barRule, qixRule));
+        Rule fooContainRule = new FooContainRule();
+        Rule barContainRule = new BarContainRule();
+        Rule qixContainRule = new QixContainRule();
+
+        fooBarQix = new FooBarQix(List.of(fooRule, barRule, qixRule, qixContainRule, barContainRule, fooContainRule));
     }
 
 
@@ -96,6 +100,16 @@ class FooBarQixTest {
 
     }
 
+    @Test
+    public void test_compute_33() {
+        String s = "33";
+
+        String result = fooBarQix.compute(s);
+
+        assertThat(result).isEqualTo("FooFooFoo");
+    }
+
+    //TODO
     @Test
     public void test_compute_53() {
 
