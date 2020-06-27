@@ -9,7 +9,8 @@ public class PriceCalculator {
     }
 
     public double calculate(List<Book> bookList) {
-        return 8D;
+        return bookList.size() * 8 * (1 - (bookList.size() - 1) * 0.05);
     }
+
 
 }
