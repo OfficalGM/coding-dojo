@@ -4,17 +4,14 @@ import java.util.List;
 
 public class PriceCalculator {
 
-    public PriceCalculator() {
-
-    }
-
     public double calculate(List<ShoppingItem> shoppingItemList) {
-        double totalPrice = 0;
+        int totalItemCount = 0;
         for (ShoppingItem item : shoppingItemList) {
-            totalPrice += item.getQuantity() * item.getBook().getPrice();
+            totalItemCount += item.getQuantity();
         }
         double disCount = 1 - (shoppingItemList.size() - 1) * 0.05;
-        return totalPrice * disCount;
+        double totalPrice = (totalItemCount - shoppingItemList.size()) * 8 + disCount * 8 * shoppingItemList.size();
+        return totalPrice;
     }
 
 }
