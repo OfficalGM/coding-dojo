@@ -5,10 +5,9 @@ import lombok.Data;
 
 @AllArgsConstructor
 @Data
-public class Book {
+public class ShoppingItem {
 
-    private String name;
-
-    private int price;
+    private Book book;
+    private int quantity;
 
 }

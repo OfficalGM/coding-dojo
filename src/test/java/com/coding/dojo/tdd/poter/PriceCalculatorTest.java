@@ -18,9 +18,9 @@ public class PriceCalculatorTest {
     }
 
     @Test
-    public void calculate_buy_1() {
+    public void calculate_buy_different_1() {
 
-        final List<Book> givenBookList = List.of(new Book("first", 8));
+        final List<ShoppingItem> givenBookList = List.of(new ShoppingItem(new Book("first", 8), 1));
 
         final double totalPrice = priceCalculator.calculate(givenBookList);
 
@@ -30,7 +30,7 @@ public class PriceCalculatorTest {
     @Test
     public void calculate_buy_different_2() {
 
-        final List<Book> givenBookList = List.of(new Book("first", 8), new Book("second", 8));
+        final List<ShoppingItem> givenBookList = List.of(new ShoppingItem(new Book("first", 8), 1),new ShoppingItem(new Book("second", 8), 1));
 
         final double totalPrice = priceCalculator.calculate(givenBookList);
 
@@ -40,10 +40,22 @@ public class PriceCalculatorTest {
     @Test
     public void calculate_buy_different_3() {
 
-        final List<Book> givenBookList = List.of(new Book("first", 8), new Book("second", 8),new Book("third", 8));
+        final List<ShoppingItem> givenBookList = List.of(new ShoppingItem(new Book("first", 8), 1),new ShoppingItem(new Book("second", 8), 1),new ShoppingItem(new Book("third", 8), 1));
 
         final double totalPrice = priceCalculator.calculate(givenBookList);
 
-        assertThat(totalPrice).isEqualTo(15.20);
+        assertThat(totalPrice).isEqualTo(21.60);
     }
+
+    @Test
+    public void calculate_buy_same_two_book() {
+
+        final List<ShoppingItem> givenBookList = List.of(new ShoppingItem(new Book("first", 8), 2));
+
+        final double totalPrice = priceCalculator.calculate(givenBookList);
+
+        assertThat(totalPrice).isEqualTo(16);
+    }
+
+
 }
