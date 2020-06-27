@@ -8,8 +8,8 @@ public class PriceCalculator {
 
     }
 
-    public Double calculate(List<Book> bookList) {
-        return null;
+    public double calculate(List<Book> bookList) {
+        return 8D;
     }
 
 }
